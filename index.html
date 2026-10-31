@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Markdown Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Marked.js CDN для рендеринга Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="editor-layout">
+    <header class="toolbar">
+      <div class="tool-group">
+        <span class="app-title">📝 Markdown Studio</span>
+      </div>
+
+      <div class="tool-group formatting-tools">
+        <button class="tool-btn" data-tag="bold" title="Жирный (**текст**)"><b>B</b></button>
+        <button class="tool-btn" data-tag="italic" title="Курсив (*текст*)"><i>I</i></button>
+        <button class="tool-btn" data-tag="h1" title="Заголовок H1">H1</button>
+        <button class="tool-btn" data-tag="h2" title="Заголовок H2">H2</button>
+        <button class="tool-btn" data-tag="link" title="Ссылка">🔗</button>
+        <button class="tool-btn" data-tag="code" title="Код">💻</button>
+        <button class="tool-btn" data-tag="list" title="Список">• Список</button>
+        <button class="tool-btn" data-tag="quote" title="Цитата">❝</button>
+      </div>
+
+      <div class="tool-group action-tools">
+        <button id="copy-html-btn" class="action-btn">Копировать HTML</button>
+        <button id="download-md-btn" class="action-btn primary">Скачать .md</button>
+      </div>
+    </header>
+
+    <main class="panes-container">
+      <div class="pane editor-pane">
+        <div class="pane-header">
+          <span>MARKDOWN</span>
+          <div class="stats">
+            <span id="word-count">0 слов</span> • 
+            <span id="char-count">0 симв.</span>
+          </div>
+        </div>
+        <textarea id="markdown-input" spellcheck="false" placeholder="Начните писать Markdown здесь..."></textarea>
+      </div>
+
+      <div class="pane preview-pane">
+        <div class="pane-header">
+          <span>ПРЕДПРОСМОТР</span>
+          <span class="reading-time" id="reading-time">~1 мин чтения</span>
+        </div>
+        <div id="preview-output" class="markdown-body"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
